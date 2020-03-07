@@ -1,0 +1,8 @@
+{{#let (am-chart-list-push @obj @property @value) as |pushed|}}
+  {{yield
+    (hash
+      value=pushed
+      property=(component "am-chart-property" obj=pushed)
+    )
+  }}
+{{/let}}

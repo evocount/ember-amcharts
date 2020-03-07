@@ -1,13 +1,15 @@
 {
   "name": "ember-amcharts",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "Use amCharts 4 in Ember in a declarative way.",
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "amcharts",
+    "charts"
   ],
-  "repository": "",
+  "repository": "https://github.com/evocount/ember-amcharts.git",
   "license": "MIT",
-  "author": "",
+  "author": "Till Theato <till.theato@evocount.de>",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -21,16 +23,18 @@
     "test:all": "ember try:each"
   },
   "dependencies": {
+    "@amcharts/amcharts4": "^4.9.6",
+    "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.17.2",
-    "ember-cli-htmlbars": "^4.2.2"
+    "ember-cli-htmlbars": "^4.2.2",
+    "@glimmer/tracking": "^1.0.0"
   },
   "devDependencies": {
     "@ember/optional-features": "^1.3.0",
+    "@ember/render-modifiers": "^1.0.2",
     "@glimmer/component": "^1.0.0",
-    "@glimmer/tracking": "^1.0.0",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-auto-import": "^1.5.3",
     "ember-cli": "~3.16.0",
     "ember-cli-dependency-checker": "^3.2.0",
     "ember-cli-eslint": "^5.1.0",

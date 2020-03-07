@@ -1,0 +1,22 @@
+<div
+  ...attributes
+  {{did-insert this.didInsertContainer}}
+  {{will-destroy this.willDestroyContainer}}
+  {{did-update this.didUpdateConfig @chartType}}
+  {{did-update this.didUpdateConfig @themes}}
+>
+</div>
+{{! TODO adapters? }}
+{{#if this.chart}}
+  {{yield
+    (hash
+      instance=this.chart
+      am4core=this.am4core
+      am4charts=this.am4charts
+      property=(component "am-chart-property" obj=this.chart)
+      on=(component "am-chart-on" obj=this.chart)
+      call=(component "am-chart-call" obj=this.chart)
+      push=(component "am-chart-push" obj=this.chart)
+    )
+  }}
+{{/if}}

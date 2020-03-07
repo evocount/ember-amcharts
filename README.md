@@ -1,38 +1,31 @@
-ember-amcharts
-==============================================================================
+# ember-amcharts
 
-[Short description of the addon.]
+Use [amCharts 4](https://www.amcharts.com/) in Ember in a declarative way.
 
+- Dynamic (lazy) imports
+- Declarative setup using contextual components
+- Close to original amCharts API
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.12 or above
-* Ember CLI v2.13 or above
-* Node.js v10 or above
+- Ember.js v3.12 or above
+- Ember CLI v2.13 or above
+- Node.js v10 or above
 
-
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-amcharts
 ```
 
-
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 [Longer description of how to use the addon in apps.]
 
-
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
-
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
