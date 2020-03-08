@@ -5,5 +5,9 @@ import { set } from '@ember/object';
  * Sets value.
  */
 export default helper(function amChartSet([obj, keyName, value] /*, hash*/) {
-  set(obj, keyName, value);
+  if (value.then) {
+    value.then(v => set(obj, keyName, v));
+  } else {
+    set(obj, keyName, value);
+  }
 });

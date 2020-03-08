@@ -1,4 +1,4 @@
 export {
   default,
-  amChartCall
+  amChartCallFunc
 } from 'ember-amcharts/helpers/am-chart-call-func';
