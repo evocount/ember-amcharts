@@ -16,11 +16,11 @@ Use [amCharts 4](https://www.amcharts.com/) in Ember in a declarative way.
 - [Installation](#installation)
 - [Usage](#usage)
   - [Components](#components)
-      - [AmChart](#amchart)
+    - [AmChart](#amchart)
     - [AmChartProperty](#amchartproperty)
     - [AmChartOn](#amcharton)
     - [AmChartCall](#amchartcall)
-  - [AmChartPush](#amchartpush)
+    - [AmChartPush](#amchartpush)
   - [Helpers](#helpers)
     - [am-chart-theme](#am-chart-theme)
     - [am-chart-obj](#am-chart-obj)
@@ -63,7 +63,7 @@ ember install ember-amcharts
 
 ### Components
 
-##### AmChart
+#### AmChart
 
 Creates the amChart.
 
@@ -113,8 +113,6 @@ Limitations:
 #### AmChartOn
 
 Registers action to event dispatcher.
-
-This call
 
 ```hbs
 <AmChartOn
@@ -167,7 +165,7 @@ Yields:
 
 - return value of function call
 
-### AmChartPush
+#### AmChartPush
 
 Pushes value into list. Tries to dispose its work upon recomputation with changed `obj`/`property` params or upon destruction.
 
