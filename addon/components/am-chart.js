@@ -6,8 +6,24 @@ import { all } from 'rsvp';
 /**
  * Creates amChart.
  *
+ * ### Usage
+ * ```hbs
+ * <AmChart
+ *   @themes=(array (am-chart-theme "material"))
+ *   @chartType="XYChart"
+ *   @initialConfig={{this.jsonConfig}}
+ *   as |chart|
+ * >
+ *   <chart.property @property="exporting.menu" @value={{am-chart-obj chart.am4core "ExportMenu"}} />
+ *   <chart.push @property="yAxes" @value={{am-chart-obj chart.am4charts "CategoryAxis"}} as |axis|>
+ *     <axis.property @property="title.text" @value="Stuff" />
+ *   </chart.push>
+ * </AmChart>
+ * ```
+ *
  * @class AmChartComponent
- * @extends Component
+ * @namespace Components
+ * @extends Glimmer.Component
  */
 export default class AmChartComponent extends Component {
   @tracked chart;
@@ -24,6 +40,13 @@ export default class AmChartComponent extends Component {
     }
     const themes = this.args.themes ? await all(this.args.themes) : [];
 
+    /**
+     * In amCharts theme are applied globally and not per chart.
+     * To better fit our concept of components we use/unuse before
+     * each chart creation.
+     *
+     * @see https://www.amcharts.com/docs/v4/concepts/themes/#Different_themes_to_different_charts
+     */
     themes.forEach(theme => this.am4core.useTheme(theme));
 
     this.chart = this.am4core.createFromConfig(

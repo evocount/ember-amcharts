@@ -2,6 +2,9 @@ import { helper } from '@ember/component/helper';
 
 /**
  * Imports (dynamic import) amChart theme for usage in am-chart component.
+ *
+ * TODO While we only import themes actually used, still all of them get packaged
+ * (though as separate chunks).
  */
 export default helper(function amChartTheme([name] /*, hash*/) {
   // see https://github.com/ef4/ember-auto-import/issues/97

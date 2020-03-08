@@ -3,15 +3,21 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Helper | am-chart-call', function(hooks) {
+module('Integration | Helper | am-chart-call-func', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('it calls functions', async function(assert) {
+    this.set('container', {
+      func: function(a, b) {
+        assert.equal(a, '10');
+        assert.equal(b, 20);
+      }
+    });
 
-    await render(hbs`{{am-chart-call inputValue}}`);
+    assert.expect(2);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    await render(
+      hbs`{{am-chart-call-func this "container.func" (array '10' 20)}}`
+    );
   });
 });

@@ -6,21 +6,29 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | am-chart-on', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it registers event handler', async function(assert) {
+    const handler = function() {
+      return 1;
+    };
+    this.set('handler', handler);
+    this.set('container', {
+      events: {
+        on: function(eventName, f) {
+          assert.equal(eventName, 'hit');
+          assert.equal(f, handler);
+        },
+        once: function(eventName, f) {
+          assert.equal(eventName, 'hover');
+          assert.equal(f, handler);
+        }
+      }
+    });
 
-    await render(hbs`<AmChartOn />`);
+    assert.expect(4);
 
-    assert.equal(this.element.textContent.trim(), '');
-
-    // Template block usage:
     await render(hbs`
-      <AmChartOn>
-        template block text
-      </AmChartOn>
+      <AmChartOn @obj={{this}} @property="container" @event="hit" @action={{this.handler}} />
+      <AmChartOn @obj={{this}} @property="container" @event="hover" @action={{this.handler}} @once={{true}} />
     `);
-
-    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });

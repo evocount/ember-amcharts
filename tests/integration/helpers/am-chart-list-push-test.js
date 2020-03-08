@@ -6,12 +6,11 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Helper | am-chart-list-push', function(hooks) {
   setupRenderingTest(hooks);
 
-  // Replace this with your real tests.
-  test('it renders', async function(assert) {
-    this.set('inputValue', '1234');
+  test('it pushes', async function(assert) {
+    this.set('list', ['foo', 'bar']);
 
-    await render(hbs`{{am-chart-list-push inputValue}}`);
+    await render(hbs`{{am-chart-list-push this "list" "baz"}}`);
 
-    assert.equal(this.element.textContent.trim(), '1234');
+    assert.deepEqual(this.list, ['foo', 'bar', 'baz']);
   });
 });

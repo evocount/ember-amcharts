@@ -7,20 +7,18 @@ module('Integration | Component | am-chart-push', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
-
-    await render(hbs`<AmChartPush />`);
-
-    assert.equal(this.element.textContent.trim(), '');
+    this.set('list', ['foo', 'bar']);
 
     // Template block usage:
     await render(hbs`
-      <AmChartPush>
-        template block text
+      <AmChartPush @obj={{this}} @property="list" @value="baz" as |pushed|>
+        {{pushed.value}}
       </AmChartPush>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.deepEqual(this.list, ['foo', 'bar', 'baz']);
+
+    // in contrast to amChart's push Array.prototype.push returns length
+    assert.equal(this.element.textContent.trim(), '3');
   });
 });

@@ -6,21 +6,27 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | am-chart-property', function(hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
-    // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.set('myAction', function(val) { ... });
+  test('it sets property', async function(assert) {
+    this.set('output', '1234');
+    this.set('renderComp', true);
+    this.set('inputValue', '4321');
 
-    await render(hbs`<AmChartProperty />`);
+    await render(
+      hbs`
+        {{#if this.renderComp}}
+          <AmChartProperty @obj={{this}} @property="output" @value={{this.inputValue}} />
+        {{/if}}
+      `
+    );
 
-    assert.equal(this.element.textContent.trim(), '');
+    assert.equal(this.output, '4321');
 
-    // Template block usage:
-    await render(hbs`
-      <AmChartProperty>
-        template block text
-      </AmChartProperty>
-    `);
+    this.set('inputValue', 'foo');
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(this.output, 'foo');
+
+    this.set('renderComp', false);
+
+    assert.equal(this.output, '1234');
   });
 });
