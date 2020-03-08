@@ -1,6 +1,6 @@
 {
   "name": "ember-amcharts",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Use amCharts 4 in Ember in a declarative way.",
   "keywords": [
     "ember-addon",
