@@ -181,6 +181,9 @@ Yields hash:
 
 - `value`: Return value of `push` (amChart's `push` returns the value pushed)
 - `property`: `AmChartProperty` as contextual component (setting `obj`)
+- `on`: `AmChartOn` as contextual component (setting `obj`)
+- `call`: `AmChartCall` as contextual component (setting `obj`)
+- `push`: `AmChartPush` as contextual component (setting `obj`)
 
 ### Helpers
 
