@@ -1,1 +1,3 @@
-{{am-chart-call-func @obj @func @params}}
+{{#let (am-chart-call-func @obj @func @params) as |result|}}
+  {{yield result}}
+{{/let}}

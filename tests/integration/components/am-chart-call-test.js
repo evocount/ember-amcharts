@@ -8,16 +8,28 @@ module('Integration | Component | am-chart-call', function(hooks) {
 
   test('it calls functions', async function(assert) {
     this.set('container', {
-      func: function(a, b) {
+      func: function(a, b, c) {
         assert.equal(a, '10');
         assert.equal(b, 20);
+        return c;
       }
     });
 
-    assert.expect(2);
+    this.set('params', ['10', 20, 'Hello World']);
+
+    assert.expect(6);
 
     await render(
-      hbs`<AmChartCall @obj={{this}} @func="container.func" @params={{array "10" 20}} />`
+      hbs`
+      <AmChartCall @obj={{this}} @func="container.func" @params={{this.params}} as |result|>
+        {{result}}
+      </AmChartCall>`
     );
+
+    assert.equal(this.element.textContent.trim(), 'Hello World');
+
+    this.set('params', ['10', 20, 'Good bye']);
+
+    assert.equal(this.element.textContent.trim(), 'Good bye');
   });
 });

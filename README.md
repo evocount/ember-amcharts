@@ -163,6 +163,10 @@ Parameters:
 - `func`: Path to function
 - `params`: List of positional parameters
 
+Yields:
+
+- return value of function call
+
 ### AmChartPush
 
 Pushes value into list. Tries to dispose its work upon recomputation with changed `obj`/`property` params or upon destruction.

@@ -17,5 +17,5 @@ export default helper(function amChartCall([obj, property, params = []]) {
   const func = path.pop();
 
   const container = path.length ? get(obj, path.join('.')) : obj;
-  container[func](...params);
+  return container[func](...params);
 });
