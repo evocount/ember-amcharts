@@ -20,7 +20,9 @@ export default class AmChartListenHelper extends Helper {
       this.handler.dispose();
     }
 
-    this.handler = get(obj, property).events[once ? 'once' : 'on'](event, func);
+    const container = property ? get(obj, property) : obj;
+
+    this.handler = container.events[once ? 'once' : 'on'](event, func);
   }
 
   willDestroy() {

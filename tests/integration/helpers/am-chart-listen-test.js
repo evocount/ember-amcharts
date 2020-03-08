@@ -29,7 +29,7 @@ module('Integration | Helper | am-chart-listen', function(hooks) {
 
     await render(hbs`
       {{am-chart-listen this "container" "hit" this.handler}}
-      {{am-chart-listen this "container" "hover" this.handler true}}
+      {{am-chart-listen this.container "" "hover" this.handler true}}
     `);
   });
 });
