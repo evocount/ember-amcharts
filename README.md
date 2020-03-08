@@ -10,6 +10,24 @@ Use [amCharts 4](https://www.amcharts.com/) in Ember in a declarative way.
 - Declarative interface using contextual components
 - Close to original amCharts API
 
+## Table of contents
+
+- [Compatibility](#compatibility)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Components](#components)
+      - [AmChart](#amchart)
+    - [AmChartProperty](#amchartproperty)
+    - [AmChartOn](#amcharton)
+    - [AmChartCall](#amchartcall)
+  - [AmChartPush](#amchartpush)
+  - [Helpers](#helpers)
+    - [am-chart-theme](#am-chart-theme)
+    - [am-chart-obj](#am-chart-obj)
+  - [Locales](#locales)
+- [Contributing](#contributing)
+- [License](#license)
+
 ## Compatibility
 
 - Ember.js v3.13 or above
