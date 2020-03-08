@@ -9,7 +9,7 @@ import { all } from 'rsvp';
  * ### Usage
  * ```hbs
  * <AmChart
- *   @themes=(array (am-chart-theme "material"))
+ *   @themes={{array (am-chart-theme "material")}}
  *   @chartType="XYChart"
  *   @initialConfig={{this.jsonConfig}}
  *   as |chart|

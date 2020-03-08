@@ -5,7 +5,7 @@ import { get } from '@ember/object';
  * Calls function.
  *
  * ```hbs
- * {{am-chart-fall-func this.chart "exporting.export" (array "png")}}
+ * {{am-chart-call-func this.chart "exporting.export" (array "png")}}
  * ```
  * translates to
  * `chart.exporting.export('png');`
