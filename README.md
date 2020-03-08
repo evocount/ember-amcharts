@@ -108,7 +108,7 @@ Properties:
 
 Limitations:
 
-- While changes `obj`, `property` and `value` will be correctly applied, only the value at the original combination `obj` / `property` is restored upon component destruction.
+- While changes to `obj`, `property` and `value` will be correctly applied, only the value at the original combination `obj` / `property` is restored upon component destruction.
 
 #### AmChartOn
 
