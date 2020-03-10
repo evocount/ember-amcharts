@@ -6,7 +6,7 @@ import { get } from '@ember/object';
  * with changed `obj`/`keyName` params or upon destruction.
  */
 export default class AmChartListPushHelper extends Helper {
-  compute([obj, keyName, value]) {
+  compute([obj, keyName, value, emptyReturn]) {
     this.dispose();
 
     this.obj = obj;
@@ -14,7 +14,10 @@ export default class AmChartListPushHelper extends Helper {
     this.value = value;
 
     // When pushing amChart objects `push` does not return array length but the pushed `value`.
-    return get(obj, keyName).push(value);
+    const result = get(obj, keyName).push(value);
+    if (!emptyReturn) {
+      return result;
+    }
   }
 
   dispose() {

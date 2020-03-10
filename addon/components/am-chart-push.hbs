@@ -1,12 +1,16 @@
-{{#let (am-chart-list-push @obj @property @value) as |pushed|}}
-  {{yield
-    (hash
-      value=pushed
-      property=(component "am-chart-property" obj=pushed)
-      on=(component "am-chart-on" obj=pushed)
-      call=(component "am-chart-call" obj=pushed)
-      push=(component "am-chart-push" obj=pushed)
-      adapter=(component "am-chart-adapter" obj=pushed)
-    )
-  }}
-{{/let}}
+{{#if (has-block)}}
+  {{#let (am-chart-list-push @obj @property @value) as |pushed|}}
+    {{yield
+      (hash
+        value=pushed
+        property=(component "am-chart-property" obj=pushed)
+        on=(component "am-chart-on" obj=pushed)
+        call=(component "am-chart-call" obj=pushed)
+        push=(component "am-chart-push" obj=pushed)
+        adapter=(component "am-chart-adapter" obj=pushed)
+      )
+    }}
+  {{/let}}
+{{else}}
+  {{am-chart-list-push @obj @property @value true}}
+{{/if}}
