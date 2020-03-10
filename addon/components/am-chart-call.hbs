@@ -1,3 +1,7 @@
-{{#let (am-chart-call-func @obj @func @params) as |result|}}
-  {{yield result}}
-{{/let}}
+{{#if (has-block)}}
+  {{#let (am-chart-call-func @obj @func @params) as |result|}}
+    {{yield result}}
+  {{/let}}
+{{else}}
+  {{am-chart-call-func @obj @func @params true}}
+{{/if}}
