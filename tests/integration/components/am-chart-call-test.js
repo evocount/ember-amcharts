@@ -32,4 +32,23 @@ module('Integration | Component | am-chart-call', function(hooks) {
 
     assert.equal(this.element.textContent.trim(), 'Good bye');
   });
+
+  test('it calls without params', async function(assert) {
+    this.set('container', {
+      func: function(a, b, c) {
+        assert.equal(a, undefined);
+        assert.equal(b, undefined);
+        return c;
+      }
+    });
+
+    assert.expect(2);
+
+    await render(
+      hbs`
+      <AmChartCall @obj={{this}} @func="container.func" as |result|>
+        {{result}}
+      </AmChartCall>`
+    );
+  });
 });

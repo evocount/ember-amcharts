@@ -12,9 +12,11 @@ import { get } from '@ember/object';
  *
  * @see AmChartCall which is exposed as contextual component on `AmChart`.
  */
-export default helper(function amChartCall([obj, property, params = []]) {
+export default helper(function amChartCall([obj, property, params]) {
   const path = property.split('.');
   const func = path.pop();
+
+  params = params || [];
 
   const container = path.length ? get(obj, path.join('.')) : obj;
   return container[func](...params);
