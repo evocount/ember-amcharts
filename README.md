@@ -21,6 +21,7 @@ Use [amCharts 4](https://www.amcharts.com/) in Ember in a declarative way.
     - [AmChartOn](#amcharton)
     - [AmChartCall](#amchartcall)
     - [AmChartPush](#amchartpush)
+    - [AmChartAdapter](#amchartadapter)
   - [Helpers](#helpers)
     - [am-chart-theme](#am-chart-theme)
     - [am-chart-obj](#am-chart-obj)
@@ -53,6 +54,8 @@ ember install ember-amcharts
 
   <chart.push @property="yAxes" @value={{am-chart-obj chart.am4charts "CategoryAxis"}} as |axis|>
     <axis.property @property="title.text" @value="Stuff" />
+
+    <axis.adapter @property="renderer.labels.template" @adapter="text" @func={{this.axisTextFormatter}} />
   </chart.push>
 
   {{#if this.triggerExport}}
@@ -82,6 +85,7 @@ Yields hash(once the chart loaded):
 - `on`: `AmChartOn` as contextual component (setting `obj`)
 - `call`: `AmChartCall` as contextual component (setting `obj`)
 - `push`: `AmChartPush` as contextual component (setting `obj`)
+- `adapter`: `AmChartAdapter` as contextual component (setting `obj`)
 
 #### AmChartProperty
 
@@ -112,7 +116,7 @@ Limitations:
 
 #### AmChartOn
 
-Registers action to event dispatcher.
+Registers action to an [event dispatcher](https://www.amcharts.com/docs/v4/concepts/event-listeners/).
 
 ```hbs
 <AmChartOn
@@ -182,6 +186,35 @@ Yields hash:
 - `on`: `AmChartOn` as contextual component (setting `obj`)
 - `call`: `AmChartCall` as contextual component (setting `obj`)
 - `push`: `AmChartPush` as contextual component (setting `obj`)
+- `adapter`: `AmChartAdapter` as contextual component (setting `obj`)
+
+#### AmChartAdapter
+
+Adds (and removes) [adapter functions](https://www.amcharts.com/docs/v4/concepts/adapters/).
+
+```hbs
+<AmChartAdapter
+  @obj={{axis}}
+  @property="renderer.labels.template"
+  @adapter="text"
+  @action={{this.axisTextFormatter}}
+/>
+```
+
+translates to
+
+```js
+axis.renderer.labels.template.adapter.add("text", function(label, target, key) { … })
+```
+
+Parameters:
+
+- `obj`: container obj
+- `property`: Path to property
+- `adapter`: adapter name/identifier
+- `action`: Function to modify the value
+- `priority`: Priority of the adapter
+- `scope`: Scope the function will be called in
 
 ### Helpers
 
