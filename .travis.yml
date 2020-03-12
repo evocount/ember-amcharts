@@ -41,8 +41,6 @@ jobs:
 
     - stage: "Additional Tests"
       name: "Floating Dependencies"
-      install:
-        - npm install --no-package-lock
       script:
         - npm test
 
@@ -55,6 +53,9 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
     - env: EMBER_TRY_SCENARIO=ember-classic
+
+install:
+    - npm install --no-package-lock
 
 script:
   - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
