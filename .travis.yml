@@ -55,7 +55,7 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-classic
 
 install:
-    - npm install --no-package-lock
+  - npm install --no-package-lock
 
 script:
-  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+  - DEBUG=ember-try* node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
