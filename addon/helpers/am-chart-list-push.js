@@ -13,7 +13,8 @@ export default class AmChartListPushHelper extends Helper {
     this.keyName = keyName;
     this.value = value;
 
-    // When pushing amChart objects `push` does not return array length but the pushed `value`.
+    // When pushing to amChart's `am4core.List`,
+    // `push` does not return array length but the pushed `value`.
     const result = get(obj, keyName).push(value);
     if (!emptyReturn) {
       return result;
@@ -22,12 +23,10 @@ export default class AmChartListPushHelper extends Helper {
 
   dispose() {
     if (this.obj && this.keyName) {
+      get(this.obj, this.keyName).removeValue(this.value);
+
       if (this.value && this.value.dispose) {
         this.value.dispose();
-      } else {
-        // TODO is it actually worth implementing this path?
-        // i.e. will amCharts be notified when we remove something from its arrays?
-        // get(this.obj, this.keyName).remove(this.value);
       }
     }
   }
