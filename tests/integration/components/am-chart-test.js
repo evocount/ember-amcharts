@@ -49,7 +49,7 @@ module('Integration | Component | am-chart', function(hooks) {
       </AmChart>
     `);
 
-    await waitFor('svg', { timeout: 2000 });
+    await waitFor('ul.amcharts-amexport-menu-root', { timeout: 2000 });
 
     assert.equal(
       this.element.querySelectorAll('svg').length,
