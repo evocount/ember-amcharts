@@ -35,14 +35,13 @@ jobs:
     - stage: "Tests"
       name: "Tests"
       script:
-        - npm run lint:hbs
-        - npm run lint:js
-        - npm test
+        - npm run lint
+        - npm run test:ember
 
     - stage: "Additional Tests"
       name: "Floating Dependencies"
       script:
-        - npm test
+        - npm run test:ember
 
     # we recommend new addons test the current and previous LTS
     # as well as latest stable release (bonus points to beta/canary)
