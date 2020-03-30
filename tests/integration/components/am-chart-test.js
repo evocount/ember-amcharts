@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, waitFor } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | am-chart', function(hooks) {
@@ -49,8 +49,7 @@ module('Integration | Component | am-chart', function(hooks) {
       </AmChart>
     `);
 
-    // TODO properly await loading of chart
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await waitFor('svg', { timeout: 2000 });
 
     assert.equal(
       this.element.querySelectorAll('svg').length,
