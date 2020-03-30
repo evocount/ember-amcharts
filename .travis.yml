@@ -58,4 +58,4 @@ install:
   - npm install --no-package-lock
 
 script:
-  - DEBUG=ember-try* node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
+  - node_modules/.bin/ember try:one $EMBER_TRY_SCENARIO
