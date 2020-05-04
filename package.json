@@ -28,7 +28,7 @@
     "@glimmer/tracking": "^1.0.0",
     "ember-auto-import": "^1.5.3",
     "ember-cli-babel": "^7.19.0",
-    "ember-cli-htmlbars": "^4.2.3"
+    "ember-cli-htmlbars": "^5.0.0"
   },
   "devDependencies": {
     "@amcharts/amcharts4": "^4.9.12",
