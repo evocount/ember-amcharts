@@ -59,8 +59,10 @@ export default class AmChartComponent extends Component {
   }
 
   destroyChart() {
-    this.chart.dispose();
-    this.chart = null;
+    if (this.chart) {
+      this.chart.dispose();
+      this.chart = null;
+    }
   }
 
   @action
